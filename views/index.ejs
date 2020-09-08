@@ -1,0 +1,56 @@
+<html lang="en">
+  <!-- partials -->
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <!-- partials -->
+    <%- include('./partials/nav.ejs') %>
+    <div class="blogs create-blog content">
+      <form id="my-form" action="/" method="POST">
+        <label for="text">Escriba aquí :</label>
+        <textarea id="text" name="text" required> </textarea>
+        <button>Traducir</button>
+      </form>
+      <% if(data.length>0) { data.forEach(item=>{ %>
+      <h3 class="title"><%= item.language %></h3>
+      <div class="detail-container">
+        <p class="snippet"><%= item.text %></p>
+      </div>
+      <% }) } else{ %>
+      <p>Type some</p>
+      <% } %>
+    </div>
+    <!-- partials -->
+    <%- include('./partials/footer.ejs') %>
+    <script>
+      // document
+      //   .getElementById("my-form")
+      //   .addEventListener("submit", function (e) {
+      //     e.preventDefault(); // before the code
+      //     /* do what you want with the form */
+
+      //     var data = document.getElementById("text").value;
+      //     fetch("/", {
+      //       method: "post",
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json",
+      //       },
+
+      //       //make sure to serialize your JSON body
+      //       body: JSON.stringify({
+      //         text: data,
+      //       }),
+      //     })
+      //       .then((response) => {
+      //         return response.text();
+      //       })
+      //       .then((data) => {
+      //         console.log(data);
+      //       })
+      //       .catch((err) => {
+      //         console.log(err);
+      //       });
+      //   });
+    </script>
+  </body>
+</html>
